@@ -29,7 +29,8 @@ An adaptive workspace that renders real-time, customizable UI widgets from struc
 "GEMINI_API_KEY=your-key-here
 GEMINI_MODEL=gemini-flash-latest  
 PORT=4000"
-4.npm start        # http://localhost:4000
+4.uncomment line 27 generateWithLLM.js 
+5.npm start        # http://localhost:4000
 ```
 
 **Optional: enable real LLM generation.** Copy `.env.example` to `.env` and set `GEMINI_API_KEY` (from [Google AI Studio](https://aistudio.google.com/)):
