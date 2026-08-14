@@ -24,8 +24,7 @@ function getClient() {
 
 /** Whether a real LLM backend is configured for this server instance. */
 function isLLMEnabled() {
-//   return Boolean(process.env.GEMINI_API_KEY);
-return false;
+  return Boolean(process.env.GEMINI_API_KEY);
 }
 
 const SYSTEM_PROMPT = `You are Dynamic Engine's dashboard-generation service for a BI analytics portal.
