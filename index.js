@@ -114,6 +114,17 @@ app.post("/api/generate-dashboard", async (req, res) => {
   res.end();
 });
 
+app.get("/api/health", (_req, res) =>
+  res.json({
+    ok: true,
+    service: "dynamic-engine-server",
+    llmEnabled: isLLMEnabled(),
+    model: isLLMEnabled()
+      ? process.env.GEMINI_MODEL || "gemini-flash-latest"
+      : null,
+  })
+);
+
 /**
  * POST /api/widget-action
  * Body: { widgetId, action, payload }
