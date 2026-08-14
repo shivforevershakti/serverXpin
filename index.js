@@ -9,7 +9,19 @@ const { isLLMEnabled, generateDashboardWithLLM } = require("./llm/generateWithLL
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-app.use(cors());
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://dynamic-engine-dashboard-cl.vercel.app",
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
 app.use(express.json());
 
 console.log(
@@ -218,3 +230,4 @@ app.get("/api/catalog", (_req, res) => {
 app.listen(PORT, () => {
   console.log(`Dynamic Engine mock server listening on http://localhost:${PORT}`);
 });
+module.exports =app;
